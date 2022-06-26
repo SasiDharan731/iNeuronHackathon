@@ -1,7 +1,14 @@
-FROM python:3.8
+# syntax=docker/dockerfile:1
 
-ADD main.py .
+FROM python:3.8-slim-buster
 
-RUN pip3 install openai
+WORKDIR /python-docker
 
-CMD ["python3", "./main.py"]
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+# Add this:
+ENV FLASK_APP=main.py
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

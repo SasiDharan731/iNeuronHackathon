@@ -34,7 +34,7 @@ def index():
     
     data = json.loads(request.data)
 
-    openai.api_key = "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"
+    openai.api_key = "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"
    
     Gpt = GPT(engine="davinci",
             temperature=0.5,
