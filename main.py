@@ -20,7 +20,7 @@ class JSONEncoder(json.JSONEncoder):
 
 app = Flask(__name__)
 cors = CORS(app)
-CONNECTION_STRING = "mongodb+srv://dharan731:Asdfgh2014@cluster0.ov2m6.mongodb.net/?retryWrites=true&w=majority"
+CONNECTION_STRING = "REPLACE YOUR DATABSE LINK"
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client.get_database('flask_mongodb_atlas')
 
@@ -34,7 +34,7 @@ def index():
     
     data = json.loads(request.data)
 
-    openai.api_key = "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"
+    openai.api_key = "OPEN AI API KEY"
    
     Gpt = GPT(engine="davinci",
             temperature=0.5,
